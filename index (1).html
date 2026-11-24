@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اسراء الهتاري | طالبة أمن سيبراني ومصممة</title>
+  <meta name="description" content="الموقع الشخصي لـ اسراء الهتاري، طالبة أمن سيبراني تجمع بين البرمجة والتصميم والتصوير.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f1020;
+      --bg-soft: #181a33;
+      --card: #1e2040;
+      --text: #f1eefc;
+      --muted: #a9a7c7;
+      --accent: #f2a7c3;
+      --accent-2: #7ee0d0;
+      --radius: 20px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Tajawal", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.9;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 420px; height: 420px;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: .28;
+      z-index: -1;
+    }
+    body::before { background: var(--accent); top: -120px; right: -120px; }
+    body::after { background: var(--accent-2); bottom: -140px; left: -140px; }
+
+    .container { width: min(1000px, 92%); margin-inline: auto; }
+
+    /* Hero */
+    header {
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      padding: 60px 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 18px;
+      border: 1px solid var(--accent-2);
+      color: var(--accent-2);
+      border-radius: 999px;
+      font-size: .95rem;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+    h1 {
+      font-size: clamp(2.6rem, 8vw, 5rem);
+      font-weight: 800;
+      line-height: 1.25;
+      background: linear-gradient(120deg, var(--text) 30%, var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tagline {
+      margin-top: 14px;
+      font-size: clamp(1.1rem, 3vw, 1.5rem);
+      color: var(--muted);
+    }
+    .tagline b { color: var(--accent-2); font-weight: 700; }
+    .btn {
+      display: inline-block;
+      margin-top: 34px;
+      padding: 14px 34px;
+      background: var(--accent);
+      color: #1a1226;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 999px;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(242,167,195,.35); }
+
+    /* Sections */
+    section { padding: 70px 0; }
+    h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 28px;
+      position: relative;
+      padding-right: 18px;
+    }
+    h2::before {
+      content: "";
+      position: absolute;
+      right: 0; top: 10px; bottom: 10px;
+      width: 5px;
+      border-radius: 5px;
+      background: linear-gradient(var(--accent), var(--accent-2));
+    }
+
+    /* About */
+    .about-box {
+      background: var(--bg-soft);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      padding: 34px 38px;
+    }
+    .about-box ul { list-style: none; }
+    .about-box li {
+      padding: 10px 0;
+      font-size: 1.12rem;
+      color: #dcd9f2;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .about-box li::before {
+      content: "✦";
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Skills */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 18px;
+    }
+    .skill {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: var(--radius);
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform .25s, border-color .25s;
+    }
+    .skill:hover { transform: translateY(-6px); border-color: var(--accent); }
+    .skill .icon { font-size: 2.2rem; display: block; margin-bottom: 10px; }
+    .skill span.name { font-weight: 700; font-size: 1.05rem; }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(242,167,195,.12), rgba(126,224,208,.1));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      padding: 50px 24px;
+    }
+    .contact p { color: var(--muted); margin-bottom: 8px; }
+    .contact a.mail {
+      color: var(--accent-2);
+      font-size: clamp(1.1rem, 4vw, 1.6rem);
+      font-weight: 700;
+      text-decoration: none;
+      word-break: break-all;
+      direction: ltr;
+      unicode-bidi: embed;
+      display: inline-block;
+    }
+    .contact a.mail:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center;
+      padding: 40px 0 50px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    @media (max-width: 600px) {
+      .about-box { padding: 24px 22px; }
+      section { padding: 50px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <span class="badge">طالبة أمن سيبراني</span>
+      <h1>اسراء الهتاري</h1>
+      <p class="tagline">أحمي الأنظمة بعقل <b>تقني</b>، وأصنع الجمال بعين <b>فنية</b>.</p>
+      <a class="btn" href="#contact">تواصل معي</a>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <section id="about">
+      <h2>نبذة عني</h2>
+      <div class="about-box">
+        <ul>
+          <li>طالبة أمن سيبراني، شغوفة بحماية الأنظمة وفهم كيف تشتغل التقنيات من الداخل.</li>
+          <li>أجمع بين الجانب التقني والإبداعي: أبرمج وأصمم المواقع، وأحب التصوير والتصميم الفني.</li>
+          <li>أطمح أطوّر مهاراتي وأشارك في مشاريع تخدم الأمان الرقمي وتكون لها لمسة جمالية.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>مهاراتي</h2>
+      <div class="skills">
+        <div class="skill"><span class="icon">💻</span><span class="name">البرمجة بلغة HTML وCSS</span></div>
+        <div class="skill"><span class="icon">🖥️</span><span class="name">تصميم المواقع</span></div>
+        <div class="skill"><span class="icon">📷</span><span class="name">التصوير</span></div>
+        <div class="skill"><span class="icon">🎨</span><span class="name">التصميم الفني</span></div>
+        <div class="skill"><span class="icon">🔐</span><span class="name">أساسيات الأمن السيبراني</span></div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>تواصل معي</h2>
+      <div class="contact">
+        <p>يسعدني تواصلكم عبر البريد الإلكتروني</p>
+        <a class="mail" href="mailto:esraalhtary@gmail.com">esraalhtary@gmail.com</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© 2026 اسراء الهتاري</div>
+  </footer>
+
+</body>
+</html>
